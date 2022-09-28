@@ -1,10 +1,9 @@
 <p align="center">
- 
-𝙏𝙊𝙓𝙄𝘾 𝙇𝙀𝙊 𝙈𝘿
     <img src="https://i.imgur.com/ABlABJP.jpeg" width="50%" height="50%" alt="Relldev"/>
     <br>
     <a href="https://github.com/toxicleo-1"><img title="Created by" src="https://img.shields.io/badge/Creator-TOXIC LEO-green?style=for-the-badge&logo=github"></a>
 </p>
+𝙏𝙊𝙓𝙄𝘾 𝙇𝙀𝙊
 
 
 Simple WhatsApp Bot
