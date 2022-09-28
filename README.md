@@ -1,6 +1,6 @@
 <div align="center">
   <p align="center">
-𝚃𝚘𝚡𝚒𝚌 𝙻𝚎𝚘 𝙼𝙳
+ᴛᴏxɪᴄ ʟᴇᴏ ᴍᴅ
 
 ## [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+TOXIC+LEO+MD+REPO;CREATED+BY+AKASH+LEO;THIS+IS+A+USERBOT+PUBLIC+BOT;WITH+MORE+FEATHERS)](https://git.io/typing-svg)
 
@@ -41,7 +41,8 @@ Project created by <a href="https://github.com/toxic-leo1</a> to make it public
 
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@darkalphaxteam/CYBER-X-MD-SCANNER?output%20only=1&lite=1#index.js)
 
-### Preview bot
+
+### Preview bot Toxic Leo
 ------------------
 - [x] Welcome <details><summary>Screenshot</summary><img src="https://i.imgur.com/ABlABJP.jpeg"></details>
 - [x] Menu <details><summary>Screenshot</summary><img src="https://i.imgur.com/ABlABJP.jpeg"></details>
