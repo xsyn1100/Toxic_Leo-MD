@@ -1,7 +1,7 @@
 {
   "name": "TOXIC-LEO BOT",
   "description": "whatsapp md bot build with nodejs",
-  "repository": "https://github.com/darkalphaxteam/Cyber-X-Beta-Release",
+  "repository": "https://github.com/toxic-leo1/Toxic_Leo-MD",
   "logo": "https://i.imgur.com/ABlABJP.jpeg",
   "keywords": ["nodejs", "bot", "whatsapp bot", "whatsapp automation", "multi device"],
   "buildpacks": [
