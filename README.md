@@ -5,8 +5,6 @@
 
  </a>
 </p>
-
-𝐓𝐎𝐗𝐈𝐂 𝐋𝐄𝐎
 <div align="center">
   <p align="center">
 <img src=https://i.imgur.com/ABlABJP.jpeg>
