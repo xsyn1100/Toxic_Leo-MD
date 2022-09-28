@@ -5,7 +5,7 @@
 //mode by Akash  -YOUTUBE Toxicelo mods
 
 require('./settings')
-const { default: BixbyMDConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
+const { default: LeoConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
@@ -56,63 +56,63 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-async function startBixbyMD() {
-    const BixbyMD = BixbyMDConnect({
+async function startLeo() {
+    const Leo = LeoConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
         browser: ['Subscribe Xeon','Safari','1.0.0'],
         auth: state
     })
 
-    store.bind(BixbyMD.ev)
+    store.bind(Leo.ev)
     
     // anticall auto block
-    BixbyMD.ws.on('CB:call', async (json) => {
+    Leo.ws.on('CB:call', async (json) => {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
-    let xeonfek = await BixbyMD.sendContact(callerId, global.owner)
-    BixbyMD.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : xeonfek })
+    let xeonfek = await Leo.sendContact(callerId, global.owner)
+    Leo.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : xeonfek })
     await sleep(8000)
-    await BixbyMD.updateBlockStatus(callerId, "block")
+    await Leo.updateBlockStatus(callerId, "block")
     }
     })
 
-    BixbyMD.ev.on('messages.upsert', async chatUpdate => {
+    Leo.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
         mek = chatUpdate.messages[0]
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
         if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-        if (!BixbyMD.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
+        if (!Leo.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
-        m = smsg(BixbyMD, mek, store)
-        require("./plugin.js")(BixbyMD, m, chatUpdate, store)
+        m = smsg(Leo, mek, store)
+        require("./plugin.js")(Leo, m, chatUpdate, store)
         } catch (err) {
             console.log(err)
         }
     })
     
     // Group Update
-    BixbyMD.ev.on('groups.update', async pea => {
+    Leo.ev.on('groups.update', async pea => {
        //console.log(pea)
     // Get Profile Picture Group
        try {
-       ppgc = await BixbyMD.profilePictureUrl(pea[0].id, 'image')
+       ppgc = await Leo.profilePictureUrl(pea[0].id, 'image')
        } catch {
-       ppgc = 'https://shortlink.BixbyMDarridho.my.id/rg1oT'
+       ppgc = 'https://shortlink.Leoarridho.my.id/rg1oT'
        }
        let lolXeon = { url : ppgc }
        if (pea[0].announce == true) {
-       BixbyMD.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. The Group Has Been Closed By Admin, Now Only Admin Can Send Messages !`, `Toxic Leo user Bot`, lolXeon, [])
+       Leo.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. The Group Has Been Closed By Admin, Now Only Admin Can Send Messages !`, `Toxic Leo user Bot`, lolXeon, [])
        } else if(pea[0].announce == false) {
-       BixbyMD.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. The Group Has Been Opened By Admin, Now Participants Can Send Messages !`, `Toxic Leo user Bot`, lolXeon, [])
+       Leo.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. The Group Has Been Opened By Admin, Now Participants Can Send Messages !`, `Toxic Leo user Bot`, lolXeon, [])
        } else if (pea[0].restrict == true) {
-       BixbyMD.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Info Has Been Restricted, Now Only Admin Can Edit Group Info !`, `Toxic Leo user Bot`, lolXeon, [])
+       Leo.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Info Has Been Restricted, Now Only Admin Can Edit Group Info !`, `Toxic Leo user Bot`, lolXeon, [])
        } else if (pea[0].restrict == false) {
-       BixbyMD.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Info Has Been Opened, Now Participants Can Edit Group Info !`, `Toxic Leo user Bot`, lolXeon, [])
+       Leo.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Info Has Been Opened, Now Participants Can Edit Group Info !`, `Toxic Leo user Bot`, lolXeon, [])
        } else {
-       BixbyMD.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Subject Has Been Changed To *${pea[0].subject}*`, `Toxic Leo user Bot`, lolXeon, [])
+       Leo.send5ButImg(pea[0].id, `*GROUP SETTING CHANGED*\n\n🚀. Group Subject Has Been Changed To *${pea[0].subject}*`, `Toxic Leo user Bot`, lolXeon, [])
      }
     })
     
@@ -128,7 +128,7 @@ let docs = pickRandom(documents)
 
 	
     //Setting\\
-    BixbyMD.decodeJid = (jid) => {
+    Leo.decodeJid = (jid) => {
         if (!jid) return jid
         if (/:\d+@/gi.test(jid)) {
             let decode = jidDecode(jid) || {}
@@ -136,45 +136,45 @@ let docs = pickRandom(documents)
         } else return jid
     }
     
-    BixbyMD.ev.on('contacts.update', update => {
+    Leo.ev.on('contacts.update', update => {
         for (let contact of update) {
-            let id = BixbyMD.decodeJid(contact.id)
+            let id = Leo.decodeJid(contact.id)
             if (store && store.contacts) store.contacts[id] = { id, name: contact.notify }
         }
     })
 
-    BixbyMD.getName = (jid, withoutContact  = false) => {
-        id = BixbyMD.decodeJid(jid)
-        withoutContact = BixbyMD.withoutContact || withoutContact 
+    Leo.getName = (jid, withoutContact  = false) => {
+        id = Leo.decodeJid(jid)
+        withoutContact = Leo.withoutContact || withoutContact 
         let v
         if (id.endsWith("@g.us")) return new Promise(async (resolve) => {
             v = store.contacts[id] || {}
-            if (!(v.name || v.subject)) v = BixbyMD.groupMetadata(id) || {}
+            if (!(v.name || v.subject)) v = Leo.groupMetadata(id) || {}
             resolve(v.name || v.subject || PhoneNumber('+' + id.replace('@s.whatsapp.net', '')).getNumber('international'))
         })
         else v = id === '0@s.whatsapp.net' ? {
             id,
             name: 'WhatsApp'
-        } : id === BixbyMD.decodeJid(BixbyMD.user.id) ?
-            BixbyMD.user :
+        } : id === Leo.decodeJid(Leo.user.id) ?
+            Leo.user :
             (store.contacts[id] || {})
             return (withoutContact ? '' : v.name) || v.subject || v.verifiedName || PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')
     }
     
-    BixbyMD.sendContact = async (jid, kon, quoted = '', opts = {}) => {
+    Leo.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	let list = []
 	for (let i of kon) {
 	    list.push({
-	    	displayName: await BixbyMD.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await BixbyMD.getName(i + '@s.whatsapp.net')}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${global.ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${global.socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${global.location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	displayName: await Leo.getName(i + '@s.whatsapp.net'),
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await Leo.getName(i + '@s.whatsapp.net')}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${global.ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${global.socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${global.location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    	////////////////////////////////////////////////////////////vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click To Chat\nitem2.EMAIL;type=INTERNET:${botscript}\nitem2.X-ABLabel:Script\nitem3.URL:${websitex}\nitem3.X-ABLabel:Script\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
-	BixbyMD.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
+	Leo.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
     
-    BixbyMD.setStatus = (status) => {
-        BixbyMD.query({
+    Leo.setStatus = (status) => {
+        Leo.query({
             tag: 'iq',
             attrs: {
                 to: '@s.whatsapp.net',
@@ -190,27 +190,27 @@ let docs = pickRandom(documents)
         return status
     }
 	
-    BixbyMD.public = true
+    Leo.public = true
 
-    BixbyMD.serializeM = (m) => smsg(BixbyMD, m, store)
+    Leo.serializeM = (m) => smsg(Leo, m, store)
 
-    BixbyMD.ev.on('connection.update', async (update) => {
+    Leo.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect } = update	    
         if (connection === 'close') {
         let reason = new Boom(lastDisconnect?.error)?.output.statusCode
-            if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); BixbyMD.logout(); }
-            else if (reason === DisconnectReason.connectionClosed) { console.log("🦄Connection closed, reconnecting...."); startBixbyMD(); }
-            else if (reason === DisconnectReason.connectionLost) { console.log("🦄Connection Lost from Server, reconnecting..."); startBixbyMD(); }
-            else if (reason === DisconnectReason.connectionReplaced) { console.log("🦄Connection Replaced, Another New Session Opened, Please Close Current Session First"); BixbyMD.logout(); }
-            else if (reason === DisconnectReason.loggedOut) { console.log(`🦄Device Logged Out, Please Scan Again And Run.`); BixbyMD.logout(); }
-            else if (reason === DisconnectReason.restartRequired) { console.log("🦄Restart Required, Restarting..."); startBixbyMD(); }
-            else if (reason === DisconnectReason.timedOut) { console.log("🦄Connection TimedOut, Reconnecting..."); startBixbyMD(); }
-            else BixbyMD.end(`🦄Unknown DisconnectReason: ${reason}|${connection}`)
+            if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); Leo.logout(); }
+            else if (reason === DisconnectReason.connectionClosed) { console.log("🦄Connection closed, reconnecting...."); startLeo(); }
+            else if (reason === DisconnectReason.connectionLost) { console.log("🦄Connection Lost from Server, reconnecting..."); startLeo(); }
+            else if (reason === DisconnectReason.connectionReplaced) { console.log("🦄Connection Replaced, Another New Session Opened, Please Close Current Session First"); Leo.logout(); }
+            else if (reason === DisconnectReason.loggedOut) { console.log(`🦄Device Logged Out, Please Scan Again And Run.`); Leo.logout(); }
+            else if (reason === DisconnectReason.restartRequired) { console.log("🦄Restart Required, Restarting..."); startLeo(); }
+            else if (reason === DisconnectReason.timedOut) { console.log("🦄Connection TimedOut, Reconnecting..."); startLeo(); }
+            else Leo.end(`🦄Unknown DisconnectReason: ${reason}|${connection}`)
         }
         console.log('Connected...', update)
     })
 
-    BixbyMD.ev.on('creds.update', saveState)
+    Leo.ev.on('creds.update', saveState)
 
     // Add Other
     /** Send Button 5 Image
@@ -223,8 +223,8 @@ let docs = pickRandom(documents)
      * @param {*} options
      * @returns
      */
-    BixbyMD.send5ButImg = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ image: img }, { upload: BixbyMD.waUploadToServer })
+    Leo.send5ButImg = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
+        let message = await prepareWAMessageMedia({ image: img }, { upload: Leo.waUploadToServer })
         var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
         templateMessage: {
         hydratedTemplate: {
@@ -235,7 +235,7 @@ let docs = pickRandom(documents)
             }
             }
             }), options)
-            BixbyMD.relayMessage(jid, template.message, { messageId: template.key.id })
+            Leo.relayMessage(jid, template.message, { messageId: template.key.id })
     }
 
     /**
@@ -247,7 +247,7 @@ let docs = pickRandom(documents)
      * @param {*} quoted 
      * @param {*} options 
      */
-    BixbyMD.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
+    Leo.sendButtonText = (jid, buttons = [], text, footer, quoted = '', options = {}) => {
         let buttonMessage = {
             text,
             footer,
@@ -255,7 +255,7 @@ let docs = pickRandom(documents)
             headerType: 2,
             ...options
         }
-        BixbyMD.sendMessage(jid, buttonMessage, { quoted, ...options })
+        Leo.sendMessage(jid, buttonMessage, { quoted, ...options })
     }
     
     /**
@@ -266,7 +266,7 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendText = (jid, text, quoted = '', options) => BixbyMD.sendMessage(jid, { text: text, ...options }, { quoted })
+    Leo.sendText = (jid, text, quoted = '', options) => Leo.sendMessage(jid, { text: text, ...options }, { quoted })
 
     /**
      * 
@@ -277,9 +277,9 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendImage = async (jid, path, caption = '', quoted = '', options) => {
+    Leo.sendImage = async (jid, path, caption = '', quoted = '', options) => {
 	let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await BixbyMD.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
+        return await Leo.sendMessage(jid, { image: buffer, caption: caption, ...options }, { quoted })
     }
 
     /**
@@ -291,9 +291,9 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendVideo = async (jid, path, caption = '', quoted = '', gif = false, options) => {
+    Leo.sendVideo = async (jid, path, caption = '', quoted = '', gif = false, options) => {
         let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await BixbyMD.sendMessage(jid, { video: buffer, caption: caption, gifPlayback: gif, ...options }, { quoted })
+        return await Leo.sendMessage(jid, { video: buffer, caption: caption, gifPlayback: gif, ...options }, { quoted })
     }
 
     /**
@@ -305,9 +305,9 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendAudio = async (jid, path, quoted = '', ptt = false, options) => {
+    Leo.sendAudio = async (jid, path, quoted = '', ptt = false, options) => {
         let buffer = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
-        return await BixbyMD.sendMessage(jid, { audio: buffer, ptt: ptt, ...options }, { quoted })
+        return await Leo.sendMessage(jid, { audio: buffer, ptt: ptt, ...options }, { quoted })
     }
 
     /**
@@ -318,7 +318,7 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendTextWithMentions = async (jid, text, quoted, options = {}) => BixbyMD.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
+    Leo.sendTextWithMentions = async (jid, text, quoted, options = {}) => Leo.sendMessage(jid, { text: text, contextInfo: { mentionedJid: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') }, ...options }, { quoted })
 
     /**
      * 
@@ -328,7 +328,7 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+    Leo.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -337,7 +337,7 @@ let docs = pickRandom(documents)
             buffer = await imageToWebp(buff)
         }
 
-        await BixbyMD.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+        await Leo.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
         return buffer
     }
 
@@ -349,7 +349,7 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
+    Leo.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,`[1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -358,7 +358,7 @@ let docs = pickRandom(documents)
             buffer = await videoToWebp(buff)
         }
 
-        await BixbyMD.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
+        await Leo.sendMessage(jid, { sticker: { url: buffer }, ...options }, { quoted })
         return buffer
     }
 	
@@ -369,7 +369,7 @@ let docs = pickRandom(documents)
      * @param {*} attachExtension 
      * @returns 
      */
-    BixbyMD.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
+    Leo.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
         let quoted = message.msg ? message.msg : message
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
@@ -385,7 +385,7 @@ let docs = pickRandom(documents)
         return trueFileName
     }
 
-    BixbyMD.downloadMediaMessage = async (message) => {
+    Leo.downloadMediaMessage = async (message) => {
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
         const stream = await downloadContentFromMessage(message, messageType)
@@ -407,8 +407,8 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
-        let types = await BixbyMD.getFile(path, true)
+    Leo.sendMedia = async (jid, path, fileName = '', caption = '', quoted = '', options = {}) => {
+        let types = await Leo.getFile(path, true)
            let { mime, ext, res, data, filename } = types
            if (res && res.status !== 200 || file.length <= 65536) {
                try { throw { json: JSON.parse(file.toString()) } }
@@ -428,7 +428,7 @@ let docs = pickRandom(documents)
        else if (/video/.test(mime)) type = 'video'
        else if (/audio/.test(mime)) type = 'audio'
        else type = 'document'
-       await BixbyMD.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
+       await Leo.sendMessage(jid, { [type]: { url: pathFile }, caption, mimetype, fileName, ...options }, { quoted, ...options })
        return fs.promises.unlink(pathFile)
        }
 
@@ -440,7 +440,7 @@ let docs = pickRandom(documents)
      * @param {*} options 
      * @returns 
      */
-    BixbyMD.copyNForward = async (jid, message, forceForward = false, options = {}) => {
+    Leo.copyNForward = async (jid, message, forceForward = false, options = {}) => {
         let vtype
 		if (options.readViewOnce) {
 			message.message = message.message && message.message.ephemeralMessage && message.message.ephemeralMessage.message ? message.message.ephemeralMessage.message : (message.message || undefined)
@@ -471,11 +471,11 @@ let docs = pickRandom(documents)
                 }
             } : {})
         } : {})
-        await BixbyMD.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
+        await Leo.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
         return waMessage
     }
 
-    BixbyMD.cMod = (jid, copy, text = '', sender = BixbyMD.user.id, options = {}) => {
+    Leo.cMod = (jid, copy, text = '', sender = Leo.user.id, options = {}) => {
         //let copy = message.toJSON()
 		let mtype = Object.keys(copy.message)[0]
 		let isEphemeral = mtype === 'ephemeralMessage'
@@ -496,15 +496,15 @@ let docs = pickRandom(documents)
 		if (copy.key.remoteJid.includes('@s.whatsapp.net')) sender = sender || copy.key.remoteJid
 		else if (copy.key.remoteJid.includes('@broadcast')) sender = sender || copy.key.remoteJid
 		copy.key.remoteJid = jid
-		copy.key.fromMe = sender === BixbyMD.user.id
+		copy.key.fromMe = sender === Leo.user.id
 
         return proto.WebMessageInfo.fromObject(copy)
     }
 
 
 //send 5 button image by xeon
-    BixbyMD.send5ButImg = async (jid , text = '' , footer = '', img, but = [], thumb, options = {}) =>{
-        let message = await prepareWAMessageMedia({ image: img, jpegThumbnail:thumb }, { upload: BixbyMD.waUploadToServer })
+    Leo.send5ButImg = async (jid , text = '' , footer = '', img, but = [], thumb, options = {}) =>{
+        let message = await prepareWAMessageMedia({ image: img, jpegThumbnail:thumb }, { upload: Leo.waUploadToServer })
         var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
         templateMessage: {
         hydratedTemplate: {
@@ -515,13 +515,13 @@ let docs = pickRandom(documents)
             }
             }
             }), options)
-            BixbyMD.relayMessage(jid, template.message, { messageId: template.key.id })
+            Leo.relayMessage(jid, template.message, { messageId: template.key.id })
     }
 
 
     //send5butvid by xeon
-        BixbyMD.send5ButVid = async (jid , text = '' , footer = '', vid, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ video: vid }, { upload: BixbyMD.waUploadToServer })
+        Leo.send5ButVid = async (jid , text = '' , footer = '', vid, but = [], options = {}) =>{
+        let message = await prepareWAMessageMedia({ video: vid }, { upload: Leo.waUploadToServer })
         var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
         templateMessage: {
         hydratedTemplate: {
@@ -532,24 +532,24 @@ let docs = pickRandom(documents)
             }
             }
             }), options)
-            BixbyMD.relayMessage(jid, template.message, { messageId: template.key.id })
+            Leo.relayMessage(jid, template.message, { messageId: template.key.id })
     }
     
     
     //send5butmsg by xeon
-            BixbyMD.send5ButMsg = (jid, text = '' , footer = '', but = []) =>{
+            Leo.send5ButMsg = (jid, text = '' , footer = '', but = []) =>{
         let templateButtons = but
         var templateMessage = {
         text: text,
         footer: footer,
         templateButtons: templateButtons
         }
-        BixbyMD.sendMessage(jid, templateMessage)
+        Leo.sendMessage(jid, templateMessage)
         }
 
 
 //sendlistmsg by xeon
-        BixbyMD.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
+        Leo.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
         let sections = sects
         var listMes = {
         text: text,
@@ -558,13 +558,13 @@ let docs = pickRandom(documents)
         buttonText: butText,
         sections
         }
-        BixbyMD.sendMessage(jid, listMes, { quoted: quoted })
+        Leo.sendMessage(jid, listMes, { quoted: quoted })
         }
 
 
     //send5butgif by xeon
-        BixbyMD.send5ButGif = async (jid , text = '' , footer = '', gif, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ video: gif, gifPlayback: true }, { upload: BixbyMD.waUploadToServer })
+        Leo.send5ButGif = async (jid , text = '' , footer = '', gif, but = [], options = {}) =>{
+        let message = await prepareWAMessageMedia({ video: gif, gifPlayback: true }, { upload: Leo.waUploadToServer })
         var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
         templateMessage: {
         hydratedTemplate: {
@@ -575,7 +575,7 @@ let docs = pickRandom(documents)
             }
             }
             }), options)
-            BixbyMD.relayMessage(jid, template.message, { messageId: template.key.id })
+            Leo.relayMessage(jid, template.message, { messageId: template.key.id })
     }
 
 
@@ -584,7 +584,7 @@ let docs = pickRandom(documents)
      * @param {*} path 
      * @returns 
      */
-    BixbyMD.getFile = async (PATH, save) => {
+    Leo.getFile = async (PATH, save) => {
         let res
         let data = Buffer.isBuffer(PATH) ? PATH : /^data:.*?\/.*?;base64,/i.test(PATH) ? Buffer.from(PATH.split`,`[1], 'base64') : /^https?:\/\//.test(PATH) ? await (res = await getBuffer(PATH)) : fs.existsSync(PATH) ? (filename = PATH, fs.readFileSync(PATH)) : typeof PATH === 'string' ? PATH : Buffer.alloc(0)
         //if (!Buffer.isBuffer(data)) throw new TypeError('Result is not a buffer')
@@ -604,10 +604,10 @@ let docs = pickRandom(documents)
 
     }
 
-    return BixbyMD
+    return Leo
 }
 
-startBixbyMD()
+startLeo()
 
 
 let file = require.resolve(__filename)
