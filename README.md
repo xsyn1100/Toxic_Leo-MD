@@ -1,6 +1,6 @@
 <div align="center">
   <p align="center">
-ᴛᴏxɪᴄ ʟᴇᴏ ᴍᴅ
+# RECODE BY TOXIC LEO
 
 ## [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+TOXIC+LEO+MD+REPO;CREATED+BY+AKASH+LEO;THIS+IS+A+USERBOT+PUBLIC+BOT;WITH+MORE+FEATHERS)](https://git.io/typing-svg)
 
@@ -10,8 +10,6 @@
 
 <div align="center">
   <p align="center">
-<img src=https://i.imgur.com/ABlABJP.jpeg>
-</p>
 
   <p align="center">
 <a href="https:"><img title="Author" src="https://img.shields.io/badge/Author--AKASH/TOXIC-LEO?color=blue&style=for-the-badge&logo=whatsapp"></a>
