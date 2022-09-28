@@ -46,4 +46,13 @@ Project created by TOXIC-LEO <a href="https://github.com/toxic-leo1</a> to make 
 6. Now Deploy Using The Button Below
    <br>
   
-
+## ⚠ Modified By,
+  <div align="center">
+  
+ [![TOXIC-LEO](https://i.imgur.com/ABlABJP.jpeg?size=200)](https://github.com/toxleo-1) |
+ [ᴛᴏxɪᴄ-ʟᴇᴏ](https://github.com/toxicleo-1) |
+ 𒆜Bug Fixes, Modules,modifying
+ [![TOXIC-KICHU](https://github.com/TOXIC-KICHU.png?size=200)](https://github.com/toxicleo-1) |
+ [TOXIC-KICHU](https://github.com/TOXIC-KICHU) |
+ Bug Fixes,update|
+  
