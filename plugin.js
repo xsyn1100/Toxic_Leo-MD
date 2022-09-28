@@ -113,11 +113,6 @@ const nexusnw = require('xfarr-api')
  let _buruan = JSON.parse(fs.readFileSync('./storage/user/hasil_buruan.json'));
  let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
 
-//Database\\
-let setik = JSON.parse(fs.readFileSync('./database/setik.json'));
-let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
-let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
-let videox = JSON.parse(fs.readFileSync('./database/video.json'))
 
 //read database\\
 let tebaklagu = db.data.game.tebaklagu = []
@@ -207,11 +202,11 @@ module.exports = Leo = async (Leo, m, chatUpdate, store) => {
 	
 	//group target \\
 const reply = (teks) => {
-            Leo.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Qᴜᴇᴇɴ ʙɪxʙʏ-ᴍᴅ ᴇᴅɪᴛɪᴏɴ`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BixbyMedia/pro.jpg`),"sourceUrl": "https://sites.google.com/view/queen-bixby/home"}}}, { quoted: m})
+            Leo.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Qᴜᴇᴇɴ ʙɪxʙʏ-ᴍᴅ ᴇᴅɪᴛɪᴏɴ`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./database/Leo.png`),"sourceUrl": "https://sites.google.com/view/queen-bixby/home"}}}, { quoted: m})
         }
         
         const replay = (teks) => {
-            Leo.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Qᴜᴇᴇɴ ʙɪxʙʏ-ᴍᴅ ᴇᴅɪᴛɪᴏɴ`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./BixbyMedia/pro.jpg`),"sourceUrl": "https://sites.google.com/view/queen-bixby/home"}}}, { quoted: m})
+            Leo.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` Qᴜᴇᴇɴ ʙɪxʙʏ-ᴍᴅ ᴇᴅɪᴛɪᴏɴ`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./database/Leo.png`),"sourceUrl": "https://sites.google.com/view/queen-bixby/home"}}}, { quoted: m})
         }
 	
         //Public & Self\\
@@ -262,31 +257,6 @@ const reply = (teks) => {
         }
         }
 
-        //auto reply 
-        for (let anji of setik){
-				if (budy === anji){
-					result = fs.readFileSync(`./BixbyMedia/sticker/${anji}.webp`)
-					Leo.sendMessage(m.chat, { sticker: result }, { quoted: m })
-					}
-			}
-			for (let anju of vien){
-				if (budy === anju){
-					result = fs.readFileSync(`./BixbyMedia/vn/${anju}.mp3`)
-					Leo.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
-					}
-			}
-			for (let anjh of imagi){
-				if (budy === anjh){
-					result = fs.readFileSync(`./BixbyMedia/image/${anjh}.jpg`)
-					Leo.sendMessage(m.chat, { image: result }, { quoted: m })
-					}
-			}
-					for (let anjh of videox){
-				if (budy === anjh){
-					result = fs.readFileSync(`./BixbyMedia/vid/${anjh}.mp4`)
-					Leo.sendMessage(m.chat, { video: result }, { quoted: m })
-					}
-				  }
 
       //Mute Chat\\
       if (db.data.chats[m.chat].mute && !isAdmins && !isCreator) {
@@ -3939,7 +3909,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                 for (let i of anu) {
                     await sleep(1500)
                     let buttonMessage = {
-document: fs.readFileSync('./BixbyMedia/bixby.xlsx'),
+document: fs.readFileSync('./LocalData/font/leo.xlsx'),
 mimetype: docs,
 jpegThumbnail: await (await fetch(ppuser)).buffer(),
 fileName: `${metadata.subject}`,
