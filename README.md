@@ -33,7 +33,7 @@ Project created by TOXIC-LEO <a href="https://github.com/toxic-leo1</a> to make 
 
   ### SIMPLE METHOD
   
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/toxic-leo1/Toxic_Leo-MD)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/xsyn1100/Toxic_Leo-MD)
 
 
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@darkalphaxteam/CYBER-X-MD-SCANNER?output%20only=1&lite=1#index.js)
