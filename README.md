@@ -20,7 +20,7 @@
 </p>
 </a>
 <p align="center">
-Project created by <a href="https://github.com/toxic-leo1</a> to make it public
+Project created by TOXIC-LEO <a href="https://github.com/toxic-leo1</a> to make it public
     <br>
        | © |
         Reserved |
