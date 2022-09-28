@@ -52,7 +52,7 @@ Project created by TOXIC-LEO <a href="https://github.com/toxic-leo1</a> to make 
  [![TOXIC-LEO](https://i.imgur.com/ABlABJP.jpeg?size=200)](https://github.com/toxleo-1) |
  [toxicleo-1](https://github.com/toxic-leo1) |
  Bug Fixes, Modules,modifying
- [![Afx-Abu](https://i.imgur.com/ABlABJP.jpeg?size=200)](https://github.com/toxicleo-1) |
+ [![Afx-Abu](https://i.imgur.com/zw7nfd0.jpeg?size=200)](https://github.com/toxicleo-1) |
  [Afx-Abu](https://github.com/Afx-Abu) |
  Bug Fixes,update|
   
