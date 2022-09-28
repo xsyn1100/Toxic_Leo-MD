@@ -1,10 +1,6 @@
 <div align="center">
   <p align="center">
 
-   <img 
-src="https://tenor.com/view/kiss-gif-25234454.gif" alt="GIF"/>
-</p>
-
 
 ## [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+TOXIC+LEO+MD+REPO;CREATED+BY+AKASH+LEO;THIS+IS+A+USERBOT+PUBLIC+BOT;WITH+MORE+FEATHERS)](https://git.io/typing-svg)
 
