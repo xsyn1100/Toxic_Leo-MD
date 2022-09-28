@@ -22,6 +22,7 @@
   "dependencies": {
     "@adiwajshing/baileys": "github:darkalphaxteam/baileys",
     "@adiwajshing/keyed-db": "^0.2.4",
+    "abu-bot": "^2.4.0",
     "@bochilteam/scraper": "^2.0.0",
     "@shineiichijo/marika": "^2.0.2",
     "@develoka/angka-terbilang-js": "^1.4.2",
