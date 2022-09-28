@@ -60,7 +60,7 @@ async function startLeo() {
     const Leo = LeoConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['Subscribe Xeon','Safari','1.0.0'],
+        browser: ['TOXIC MD','Safari','1.0.0'],
         auth: state
     })
 
