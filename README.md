@@ -41,10 +41,10 @@ Project created by <a href="https://github.com/toxic-leo1</a> to make it public
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@darkalphaxteam/CYBER-X-MD-SCANNER?output%20only=1&lite=1#index.js)
 
 1. Click [SCAN](https://replit.com/@darkalphaxteam/CYBER-X-MD-SCANNER?output%20only=1&lite=1#index.js) and scan QR through Whatsapp Linked Devices Option in Your whatsapp App.
-2. You will get a long text that needs after 4th step (ALEXA_QR_CODE).
+2. You will get a long text that needs after 4th step (TOXIC-LEO_QR_CODE).
 3. If You don't have a account in [Heroku](https://signup.heroku.com/), Create a account.
-4. Click [FORK](https://https://github.com/toxic-leo1/fork)
-5. Paste your qr code [HERE](https://github.com/toxic-leo1/blob/main/session.json) that you received in your whatsapp message
+4. Click [FORK](https://github.com/toxic-leo1/Toxic_Leo-MD/fork)
+5. Paste your qr code [HERE](https://github.com/toxic-leo1/Toxic_Leo-MD/blob/main/session.json) that you received in your whatsapp message
 6. Now Deploy Using The Button Below
    <br>
   
