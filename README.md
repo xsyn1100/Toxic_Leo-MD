@@ -46,4 +46,12 @@ Project created by TOXIC-LEO <a href="https://github.com/toxic-leo1</a> to make 
 6. Now Deploy Using The Button Below
    <br>
   
+## DEVELOPERS
+  <div align="center">
+    
+  [![TOXIC LEO](https://github.com/toxicleo-1.png?size=100)](https://github.com/toxicleo-1) |  [![Midhunser](https://github.com/toxicleo-1.png?size=100)](https://github.com/toxicleo-1) | [![Abu](https://github.com/afnanplk.png?size=100)](https://github.com/afnanplk) 
+----|----|---
+[TOXIC-LEO](https://github.com/toxicleo-1)  | [Midhunser](https://github.com/Kalippan-minnuz) | [afnanplk](https://github.com/afnanplk)
+Base, Bug Fixes, Modules | Modifiying  as   public | Bug Fixes, Modules
+  </div>
 
