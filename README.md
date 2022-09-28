@@ -1,25 +1,48 @@
+<div align="center">
+  <p align="center">
 
+   <img 
+src="https://tenor.com/view/kiss-gif-25234454.gif" alt="GIF"/>
+</p>
+
+
+## [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+TOXIC+LEO+MD+REPO;CREATED+BY+AKASH+LEO;THIS+IS+A+USERBOT+PUBLIC+BOT;WITH+MORE+FEATHERS)](https://git.io/typing-svg)
+
+ </a>
+</p>
+
+
+<div align="center">
+  <p align="center">
+<img src=https://i.imgur.com/ABlABJP.jpeg>
+</p>
+
+  <p align="center">
+<a href="https:"><img title="Author" src="https://img.shields.io/badge/Author--AKASH/TOXIC-LEO?color=blue&style=for-the-badge&logo=whatsapp"></a>
+</p>
+</div>
 <p align="center">
-    <img src="https://i.imgur.com/ABlABJP.jpeg" width="50%" height="50%" alt="Relldev"/>
+  <a href="https://instagram.com/akash_ak_4"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/> 
+  <a href="https://wa.me/919497206865"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+</p>
+</a>
+<p align="center">
+Project created by <a href="https://github.com/toxic-leo1</a> to make it public
     <br>
-    <a href="https://github.com/toxicleo-1"><img title="Created by" src="https://img.shields.io/badge/Creator-TOXIC LEO-green?style=for-the-badge&logo=github"></a>
+       | © |
+        Reserved |
+    <br> 
 </p>
-𝙏𝙊𝙓𝙄𝘾 𝙇𝙀𝙊
+
+## SETUP
+<div align="center"> 
 
 
-Simple WhatsApp Bot
-
-<p align="center">
-  <a href="https://github.com/toxicleo-1"><img src="http://readme-typing-svg.herokuapp.com?color=7FFF00&center=true&vCenter=true&multiline=false&lines=Simple+Whatsapp+Bot;Base+ori+by+Nurutomo;Give+star+and+forks+this+repo; Script+By+TOXIC LEO" alt="UwU">
-</p>
-   SIMPLE METHOD
+  ### SIMPLE METHOD
   
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/toxic-leo1/Toxic_Leo-MD)
 
 
 [![Run on Repl.it](https://repl.it/badge/github/quiec/whatsAlfa)](https://replit.com/@darkalphaxteam/CYBER-X-MD-SCANNER?output%20only=1&lite=1#index.js)
-
-
-
   
 
